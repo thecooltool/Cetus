@@ -9,8 +9,6 @@ ColumnLayout {
 
     FeedrateControl {}
 
-    RapidrateControl {}
-
     SpindlerateControl {}
 
     MaximumVelocityControl {}
