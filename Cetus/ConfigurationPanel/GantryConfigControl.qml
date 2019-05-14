@@ -36,7 +36,7 @@ ColumnLayout {
         columns: 2
 
         Label {
-            text: qsTr("Left offset:")
+            text: qsTr("X1 [plug X] offset:")
         }
 
         HalSpinBox {
@@ -51,7 +51,7 @@ ColumnLayout {
         }
 
         Label {
-            text: qsTr("Right offset:")
+            text: qsTr(" X2 [plug C] offset:")
         }
 
         HalSpinBox {
