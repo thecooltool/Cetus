@@ -37,7 +37,7 @@ AbstractDigitalReadOut {
                 var homed = root.axisHomed[0].homed;
                 item.color = homed ? "lightgreen" : "#FF4444";
                 item.secondValue = Number(root.dtg['x']);
-                item = Object.assign({}, item);
+                item = JSON.parse(JSON.stringify(item));
                 item.name = qsTr("Dia");
                 item.value = Number(root.position['x']) * 2.0;
                 item.secondValue = Number(root.dtg['x']) * 2.0;
