@@ -163,11 +163,11 @@
 <context>
     <name>GantryConfigControl</name>
     <message>
-        <source>Left offset:</source>
+        <source>X1 [plug X] offset:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Right offset:</source>
+        <source> X2 [plug C] offset:</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
