@@ -38,13 +38,15 @@ Dialog {
             Label {
                 id: infoText
                 Layout.fillWidth: true
-                text: "Copyright 2014-2017 by Alexander Rössler<br>"
+                text: "Copyright 2014-2019 by Alexander Rössler<br>"
                       + "This UI is based on <a href='https://github.com/qtquickvcp/qtquickvcp'>QtQuickVcp</a> Revision: " + Revision.name + "<br>"
                       + "<br>"
                       + "Development sponsored by:<br>"
                       + "TheCoolTool GmbH (<a href='http://www.thecooltool.com/'>http://www.thecooltool.com/</a>)<br>"
                       + "<br>"
                       + "<a href='https://github.com/qtquickvcp/Cetus'>Cetus</a> is licensed under the <a href='http://www.gnu.org/licenses/agpl-3.0.html'>GNU Affero General Public License, version 3</a>."
+                      + "<br><br>"
+                      + "Compiled against Qt " + Revision.compiledQtVersion + " and running with Qt " + Revision.runtimeQtVersion + "."
                 textFormat: Text.StyledText
                 elide: Text.ElideRight
                 onLinkActivated: Qt.openUrlExternally(link)
