@@ -348,7 +348,7 @@
 <context>
     <name>ToolStatusLabel</name>
     <message>
-        <source>Tool %1, offset: %2, diameter: %3</source>
+        <source>Tool: %1, Offset:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

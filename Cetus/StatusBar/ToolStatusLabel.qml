@@ -6,29 +6,32 @@ import Machinekit.Application 1.0
 Label {
     id: root
     verticalAlignment: Text.AlignVCenter
-    text: d.valid ? qsTr("Tool %1, offset: %2, diameter: %3")
+    text: d.valid ? qsTr("Tool: %1, Offset:")
                     .arg(d.toolId)
-                    .arg((d.offset * d.distanceFactor).toFixed(d.mmActive ? 3 : 4))
+                    + (d.lathe ? " z%2 x%4, ø: %3" : " %2, ø: %3")
+                    .arg((d.offset.z * d.distanceFactor).toFixed(d.mmActive ? 3 : 4))
                     .arg((d.diameter * d.distanceFactor).toFixed(d.mmActive ? 3 : 4))
+                    .arg((d.offset.x * d.distanceFactor).toFixed(d.mmActive ? 3 : 4))
                   : qsTr("No Tool")
 
     QtObject {
         id: d
         readonly property bool ready: appObject.status.synced && appObject.helper.ready
-        readonly property double offset: ready ? Number(getToolOffsetById(toolId).z) : 0.0
+        readonly property var offset: ready ? getToolOffsetById(toolId) : {"x": 0.0 , "z": 0.0}
         readonly property int toolId: ready ? appObject.status.io.toolInSpindle : 0
         readonly property double diameter: ready ? Number(getToolDiameterById(toolId)) : 0.0
         readonly property bool valid: toolId > 0
         readonly property bool mmActive: ready ? appObject.helper.distanceUnits === "mm" : true
         readonly property double distanceFactor: ready ? appObject.helper.distanceFactor : 1
         readonly property var toolTable: ready ? appObject.status.io.toolTable : []
+        readonly property bool lathe: ready ? appObject.status.config.lathe : false
 
         function getToolDiameterById(id) {
             return _getValueById("diameter", id, 0.0);
         }
 
         function getToolOffsetById(id) {
-            return _getValueById("offset", id, {"z": 0.0});
+            return _getValueById("offset", id, {"x": 0.0 , "z": 0.0});
         }
 
         function _getValueById(value, id, defaultValue) {
