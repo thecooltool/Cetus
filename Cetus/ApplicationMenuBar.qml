@@ -14,8 +14,8 @@ MenuBar {
             }
         }
         // Recent files
-        MenuItem { action: EditWithSystemEditorAction {} }
-        MenuItem { action: ReopenAction { } }
+        MenuItem { text: action.text; action: EditWithSystemEditorAction {} }
+        MenuItem { text: action.text; action: ReopenAction { } }
         // Save GCode
         // Properties
         MenuSeparator {}
@@ -23,6 +23,7 @@ MenuBar {
             action: EditToolTableAction {
                 editorDialog: toolTableEditorDialog
             }
+            text: action.text
         }
         // Ladder editor
 
@@ -48,15 +49,15 @@ MenuBar {
     Menu {
         title: qsTr("&Machine")
 
-        MenuItem { action: EstopAction { } }
-        MenuItem { action: PowerAction { } }
+        MenuItem { text: action.text; action: EstopAction { } }
+        MenuItem { text: action.text; action: PowerAction { } }
         MenuSeparator {}
-        MenuItem { action: RunProgramAction { } }
+        MenuItem { text: action.text; action: RunProgramAction { } }
         // run from line
-        MenuItem { action: StepProgramAction { } }
-        MenuItem { action: PauseResumeProgramAction { } }
-        MenuItem { action: StopProgramAction { } }
-        MenuItem { action: OptionalStopAction {} }
+        MenuItem { text: action.text; action: StepProgramAction { } }
+        MenuItem { text: action.text; action: PauseResumeProgramAction { } }
+        MenuItem { text: action.text; action: StopProgramAction { } }
+        MenuItem { text: action.text; action: OptionalStopAction {} }
         // skip lines with /
         // mdi
         // homing
@@ -173,7 +174,7 @@ MenuBar {
             text: qsTr("Show &coordinate")
         }
 
-        MenuItem { action: ClearBackplotAction { } }
+        MenuItem { text: action.text; action: ClearBackplotAction { } }
     }
 
     Menu {
